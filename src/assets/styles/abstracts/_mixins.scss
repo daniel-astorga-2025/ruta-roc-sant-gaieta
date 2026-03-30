@@ -1,0 +1,22 @@
+// Siempre primero los @use
+@use "variables" as v;
+
+// Mixins de utilidad
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin responsive centralizado usando variables
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: v.$breakpoint-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: v.$breakpoint-desktop) {
+      @content;
+    }
+  }
+}

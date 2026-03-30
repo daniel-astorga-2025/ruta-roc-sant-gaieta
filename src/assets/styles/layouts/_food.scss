@@ -1,0 +1,59 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as m;
+
+// ==============================
+// FOOD / GASTRONOMÍA
+// ==============================
+.food {
+  background-color: v.$light-color;
+  padding: f.px-to-rem(40) f.px-to-rem(20);
+  text-align: center;
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 f.px-to-rem(10); // separación lateral en móviles
+  }
+
+  &__title {
+    font-size: f.px-to-rem(24);
+    color: v.$primary-color;
+    margin-bottom: v.$spacing;
+  }
+
+  &__text {
+    font-size: f.px-to-rem(16);
+    line-height: 1.5;
+    color: v.$dark-color;
+    text-align: center;
+  }
+
+  // TABLET
+  @include m.respond-to(tablet) {
+    padding: f.px-to-rem(60) f.px-to-rem(30);
+
+    &__title {
+      font-size: f.px-to-rem(28);
+    }
+
+    &__text {
+      font-size: f.px-to-rem(18);
+      line-height: 1.6;
+    }
+  }
+
+  // DESKTOP
+  @include m.respond-to(desktop) {
+    padding: f.px-to-rem(80) f.px-to-rem(60);
+
+    &__title {
+      font-size: f.px-to-rem(32);
+    }
+
+    &__text {
+      font-size: f.px-to-rem(20);
+      line-height: 1.6;
+    }
+  }
+}

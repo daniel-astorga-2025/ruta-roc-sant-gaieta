@@ -1,0 +1,84 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as m;
+
+.hero {
+  width: 100vw; // ancho completo de la ventana
+  margin: 0; // elimina cualquier margen por defecto
+  padding: f.px-to-rem(60) f.px-to-rem(20);
+  background: url('../images/hero.jpg') center center / cover no-repeat;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+
+  .hero__content {
+    width: 100%;
+    max-width: 1200px; // limita el contenido interno
+    padding: 0 f.px-to-rem(20); // evita que el contenido toque bordes
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: f.px-to-rem(28);
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    margin-top: v.$spacing;
+    font-size: f.px-to-rem(16);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__button {
+    margin-top: v.$spacing;
+    padding: f.px-to-rem(12) f.px-to-rem(20);
+    background-color: v.$secondary-color;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &--primary {
+      background-color: v.$accent-color;
+    }
+  }
+
+  // 📱 TABLET
+  @include m.respond-to(tablet) {
+    padding: f.px-to-rem(100);
+
+    &__title {
+      font-size: f.px-to-rem(40);
+    }
+
+    &__subtitle {
+      font-size: f.px-to-rem(18);
+      max-width: 70%;
+    }
+  }
+
+  // 💻 DESKTOP
+  @include m.respond-to(desktop) {
+    min-height: 80vh;
+    padding: f.px-to-rem(140);
+
+    &__title {
+      font-size: f.px-to-rem(56);
+    }
+
+    &__subtitle {
+      font-size: f.px-to-rem(20);
+      max-width: 600px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@use "../abstracts/variables" as v;
+
+body {
+  color: v.$dark-color;
+  font-family: 'Arial', sans-serif;
+}

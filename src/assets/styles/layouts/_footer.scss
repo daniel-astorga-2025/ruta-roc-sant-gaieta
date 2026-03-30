@@ -1,0 +1,13 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as f;
+
+.footer {
+  background-color: v.$primary-color;
+  color: white;
+  text-align: center;
+  padding: v.$spacing;
+
+  &__text {
+    font-size: f.px-to-rem(14);
+  }
+}

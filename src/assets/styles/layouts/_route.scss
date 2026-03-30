@@ -1,0 +1,82 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as f;
+@use "../abstracts/mixins" as m;
+@use "sass:math";
+
+
+// ==============================
+// ROUTE
+// ==============================
+.route {
+  background-color: white;
+  padding: f.px-to-rem(40) f.px-to-rem(20);
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: f.px-to-rem(24);
+    color: v.$primary-color;
+    margin-bottom: v.$spacing;
+    text-align: center;
+  }
+
+  &__step {
+    background-color: v.$light-color;
+    padding: f.px-to-rem(20);
+    margin-bottom: f.px-to-rem(20);
+    border-radius: 10px;
+
+    &-title {
+      font-size: f.px-to-rem(20);
+      margin-bottom: math.div(v.$spacing, 2);
+      color: v.$dark-color;
+    }
+
+    &-text {
+      font-size: f.px-to-rem(16);
+      line-height: 1.5;
+      color: v.$dark-color;
+    }
+  }
+
+  // TABLET
+  @include m.respond-to(tablet) {
+    &__step {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: f.px-to-rem(25);
+
+      &-title {
+        font-size: f.px-to-rem(22);
+      }
+
+      &-text {
+        font-size: f.px-to-rem(17);
+      }
+    }
+  }
+
+  // DESKTOP
+  @include m.respond-to(desktop) {
+    padding: f.px-to-rem(80) f.px-to-rem(60);
+
+    &__title {
+      font-size: f.px-to-rem(32);
+    }
+
+    &__step {
+      padding: f.px-to-rem(30);
+      &-title {
+        font-size: f.px-to-rem(24);
+      }
+      &-text {
+        font-size: f.px-to-rem(18);
+      }
+    }
+  }
+}
+

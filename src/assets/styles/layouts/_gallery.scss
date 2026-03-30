@@ -1,0 +1,45 @@
+@use "../abstracts/mixins" as m;
+
+.gallery {
+  width: 100vw;      // full width
+  padding: 0 1rem;   // evita que toquen los bordes
+  box-sizing: border-box;
+
+  &__container {
+    max-width: 1200px; // limita el contenido interno
+    margin: 0 auto;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    .gallery__image {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      object-fit: cover; // asegura que la imagen llene la celda sin deformarse
+    }
+  }
+
+  // 📱 TABLET
+  @include m.respond-to(tablet) {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // 💻 DESKTOP
+  @include m.respond-to(desktop) {
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
