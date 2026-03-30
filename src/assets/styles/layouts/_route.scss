@@ -42,6 +42,12 @@
     }
   }
 
+  .route__title i,
+  .route__step-title i {
+    margin-right: 0.5rem;
+    color: v.$primary-color;
+  }
+
   // TABLET
   @include m.respond-to(tablet) {
     &__step {
