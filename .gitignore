@@ -264,3 +264,6 @@ dist
 *.tmp
 *.temp
 
+#Algunos archivos del Boilerplate de la UOC que se han renombrado
+/src/_index.html
+
